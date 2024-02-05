@@ -1,1 +1,34 @@
-The incomplete kernel of nelOS. Please add stuff like variables etc.
+; nelOS Code
+
+section .text
+    global _start
+
+_start:
+    ; Initialize the stack pointer
+    mov esp, stack
+
+    ; Call the main function
+    call main
+
+    ; Exit the program
+    mov eax, 1
+    xor ebx, ebx
+    int 0x80
+
+section .data
+    ; Define data variables here
+
+section .bss
+    ; Define uninitialized variables here
+
+section .stack
+    ; Define the stack here
+    stack resb 4096
+
+section .text
+    ; Define functions here
+    main:
+        ; Main function code here
+
+        ; Return from main
+        ret
